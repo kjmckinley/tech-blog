@@ -1,0 +1,54 @@
+
+{{!-- This code will generate the html that will be visible to the user and is linked to be powered by js --}}
+
+<form class='login-form'>
+
+    <div id='login_alert_container'></div>
+
+    {{!-- username text box --}}
+    <div>
+        <label for='username_login'>Username:</label>
+        <input type='text' id='username_login' autocomplete="off"/>
+    </div>
+
+    {{!-- password text box --}}
+    <div>
+        <label for='password_login'>Password:</label>
+        <input type='password' id='password_login'/>
+    </div>
+
+    {{!-- sign in submit button --}}
+    <div>
+        <button type='submit' id='login_submit'>login</button>
+    </div>
+</form>
+
+{{!-- signup form --}}
+<form class='signup-form'>
+        <div id='signup_alert_container'></div>
+
+    {{!-- username signup box --}}
+    <div>
+        <label for='username_signup'>username:</label>
+        <input type='text' id='username_signup' autocomplete="off"/>
+    </div>
+
+    {{!-- email signup text box --}}
+    <div>
+        <label for='email_signup'>email:</label>
+        <input type='text' id='email_signup'/>
+    </div>
+
+    {{!-- password signup tex box --}}
+    <div>
+        <label for='password_signup'>password:</label>
+        <input type='password' id='password_signup'/>
+    </div>
+
+    {{!-- signup submit button --}}
+    <div>
+        <button type='submit' id='signup_submit'>sign up</button>
+    </div>
+</form>
+
+<script src="../public/js/login.js"></script>
