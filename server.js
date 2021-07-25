@@ -9,7 +9,7 @@ const exphbs = require('express-handlebars');
 
 const hbs = exphbs.create({ helpers });
 
-//add session storing
+// add session storing
 const session = require('express-session');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -23,7 +23,7 @@ const sess = {
       db: sequelize
     })
   }
-
+// linking app to express
 const app = express();
 
 const PORT = process.env.PORT || 3001;
