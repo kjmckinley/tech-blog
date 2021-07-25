@@ -3,7 +3,7 @@
         <a href='/post/{{post.id}}'><h1>{{post.title}}</h1></a>
     </div>
     <p>{{post.post_text}}</p>
-    <div class='meta'>Written by {{post.user.username}}</div>
+    <div class='meta'>Written By {{post.user.username}}</div>
     <div class='meta'><i>{{dateFormat post.created_at}}</i></div>
     <div class='meta'>{{post.comments.length}} {{wordFormat "comment" post.comments.length}}</div> 
     
@@ -17,7 +17,7 @@
         <textarea name='comment-body' placeholder="leave a comment"></textarea>
     </div>
     <div>
-        <button type='submit'>add comment</button>
+        <button type='submit'>Add a Comment</button>
     </div>
 </form>
 <script src="/javascript/comment.js"></script>

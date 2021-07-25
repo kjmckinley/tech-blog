@@ -1,3 +1,4 @@
+
 async function deletePost(event) {
     event.preventDefault();
 
