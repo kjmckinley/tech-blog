@@ -1,9 +1,11 @@
+
+// dependencies for dashboard routes
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const {BlogPost, User, Comment} = require('../models');
 const authenticateUser = require('../utils/auth')
 
-
+// retrieve dashboard contents
 router.get('/', authenticateUser, (req, res) => {
     BlogPost.findAll({
         where: {
@@ -32,6 +34,7 @@ router.get('/', authenticateUser, (req, res) => {
     }).catch(err => res.status(500).json(err))
 })
 
+// retrieve dashboard edit
 router.get('/edit/:id', authenticateUser, (req, res) => {
     BlogPost.findOne({
         where: {

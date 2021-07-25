@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../../models')
 
-//get all users
+// get every users
 router.get('/', (req, res) => {
     User.findAll({
         })
@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(500).json(err))
 });
 
-//get one user
+// get a single user
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: {exclude: ['password']},
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(500).json(err))
 });
 
-//update user
+// update the current user
 router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
@@ -60,7 +60,7 @@ router.put('/:id', (req, res) => {
     
 });
 
-//create new user
+// create a new user
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
@@ -68,7 +68,7 @@ router.post('/', (req, res) => {
         password: req.body.password
     })
     .then(userData => {
-        //when a user signs up, save as session and determine loggedin true
+        //when a user signs up, save as a session and determine if loggedin is true
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
@@ -80,7 +80,7 @@ router.post('/', (req, res) => {
     .catch(err => res.status(500).json(err))
 });
 
-//login a user
+// allow user to login
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
@@ -110,11 +110,11 @@ router.post('/login', (req, res) => {
     })
 });
 
-//logout a user
+// allow user to logout
 router.post('/logout', (req, res) => {
     if(req.session.loggedIn){
         req.session.destroy(() => {
-            //send status of no content back once session is terminated
+            // status of no content back if the session is terminated
             res.status(204).end();
         })
     } else {
@@ -123,7 +123,7 @@ router.post('/logout', (req, res) => {
     }
 })
 
-//delete user
+// delete the user
 router.delete('/:id', (req, res) => {
     User.destroy({
         where: {

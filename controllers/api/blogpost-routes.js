@@ -2,9 +2,9 @@ const router = require('express').Router();
 const { BlogPost, User, Comment } = require('../../models')
 const authenticateUser = require('../../utils/auth')
 
-//get all posts
-//update to include user information on blog posts
-//update to include comment data on blog posts
+// get all existing posts
+// update to include user information on the blog posts
+// update to include existing comment data on the blog posts
 router.get('/', (req, res) => {
     BlogPost.findAll({
         attributes: ['id', 'title', 'post_text', 'created_at'],
@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(500).json(err))
 });
 
-//get one post
+// get a single post
 router.get('/:id', (req, res) => {
     BlogPost.findOne({
         where: {
@@ -60,7 +60,7 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(500).json(err))
 });
 
-//create new post
+// create one new post
 router.post('/', authenticateUser, (req, res) => {
     BlogPost.create({
         title: req.body.title,
@@ -70,7 +70,7 @@ router.post('/', authenticateUser, (req, res) => {
     .catch(err => res.status(500).json(err))
 });
 
-//update post title
+// update one post title
 router.put('/:id', authenticateUser, (req, res) => {
     BlogPost.update(
         { title: req.body.title }, {
@@ -86,7 +86,7 @@ router.put('/:id', authenticateUser, (req, res) => {
     }).catch(err => res.status(500).json(err))
 });
 
-//delete post
+// delete one post
 router.delete('/:id', (req, res) => {
     BlogPost.destroy({
         where: {
