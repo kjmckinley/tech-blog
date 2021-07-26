@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
     })
     .then(postData => {
         if(!postData){
-            res.status(404).json({message: 'Post not found!'});
+            res.status(404).json({message: 'ERROR: Post Not Found!'});
             return
         }
         res.json(postData)
@@ -79,7 +79,7 @@ router.put('/:id', authenticateUser, (req, res) => {
         }
     }).then(postData => {
         if(!postData){
-            res.status(404).json({message: 'No post found!'})
+            res.status(404).json({message: 'ERROR: Post Not Found!'})
             return
         }
         res.json(postData)
@@ -94,7 +94,7 @@ router.delete('/:id', (req, res) => {
         }
     }).then(postData => {
         if(!postData){
-            res.status(404).json({message: 'No post found.'})
+            res.status(404).json({message: 'ERROR: Post Not Found.'})
             return
         }
         res.json(postData)

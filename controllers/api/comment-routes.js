@@ -31,9 +31,10 @@ router.put('/:id', authenticateUser, (req, res) => {
             where: { 
                 id: req.params.id
             }
-        }).then(commentData => {
+        })
+        .then(commentData => {
             if(!commentData){
-                res.status(404).json({message: 'Comment not found!'})
+                res.status(404).json({message: 'ERROR: Comment Not Found!'})
                 return
             }
             res.json(commentData)
@@ -44,9 +45,10 @@ router.put('/:id', authenticateUser, (req, res) => {
 router.delete('/:id', (req, res) => {
     Comment.destroy({
         where: {id: req.params.id}
-    }).then(commentData => {
+    })
+    .then(commentData => {
         if(!commentData){
-            res.status(404).json({message: 'Comment not found!'})
+            res.status(404).json({message: 'ERROR: Comment Not Found!'})
             return
         }
         res.json(commentData)
